@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura dos Números - Aprenda Brincando</title>
+    <meta name="description" content="Jogo educativo divertido para crianças aprenderem os conceitos de milhares, centenas, dezenas e unidades usando o Material Dourado interativo.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-decorations">
+        <!-- Floating shapes for a magical aesthetic -->
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+    </div>
+
+    <div class="app-wrapper">
+        <header>
+            <div class="header-content panel-glass">
+                <div class="stat-badge level-badge">
+                    <span class="label">Nível</span>
+                    <span class="value pulse-text" id="level-display">1</span>
+                </div>
+                
+                <div class="title-area">
+                    <h1>Aventura dos Números</h1>
+                    <p class="subtitle">Material Dourado Interativo ✨</p>
+                </div>
+
+                <div class="stat-badge score-badge">
+                    <span class="label">Pontos</span>
+                    <span class="value" id="score-display">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-board">
+            <!-- TARGET NUMBER -->
+            <section class="target-section panel-glass">
+                <h2>O Número Alvo é:</h2>
+                <div id="target-number" class="big-number float-animation">0</div>
+                <p class="instruction-text">Adicione os blocos para formar este número!</p>
+            </section>
+
+            <!-- CONTROLS & VISUALIZER -->
+            <div class="interactive-area">
+                
+                <!-- VISUALIZER OF SELECTED BLOCKS -->
+                <section class="visualizer-section panel-glass">
+                    <div class="visuals-wrapper" id="visuals-1000"></div>
+                    <div class="visuals-wrapper" id="visuals-100"></div>
+                    <div class="visuals-wrapper" id="visuals-10"></div>
+                    <div class="visuals-wrapper" id="visuals-1"></div>
+                </section>
+
+                <!-- BUTTON CONTROLS -->
+                <section class="controls-section panel-glass">
+                    <!-- Milhares -->
+                    <div class="control-card milhar-card" id="card-1000">
+                        <div class="card-header">
+                            <h3>Milhares</h3>
+                            <span class="badge">1.000</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="block-icon icon-milhar"></div>
+                            <div class="stepper">
+                                <button class="btn-step btn-minus" data-type="1000">-</button>
+                                <span class="step-count" id="count-1000">0</span>
+                                <button class="btn-step btn-plus" data-type="1000">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centenas -->
+                    <div class="control-card centena-card" id="card-100">
+                        <div class="card-header">
+                            <h3>Centenas</h3>
+                            <span class="badge">100</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="block-icon icon-centena"></div>
+                            <div class="stepper">
+                                <button class="btn-step btn-minus" data-type="100">-</button>
+                                <span class="step-count" id="count-100">0</span>
+                                <button class="btn-step btn-plus" data-type="100">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dezenas -->
+                    <div class="control-card dezena-card" id="card-10">
+                        <div class="card-header">
+                            <h3>Dezenas</h3>
+                            <span class="badge">10</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="block-icon icon-dezena"></div>
+                            <div class="stepper">
+                                <button class="btn-step btn-minus" data-type="10">-</button>
+                                <span class="step-count" id="count-10">0</span>
+                                <button class="btn-step btn-plus" data-type="10">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Unidades -->
+                    <div class="control-card unidade-card" id="card-1">
+                        <div class="card-header">
+                            <h3>Unidades</h3>
+                            <span class="badge">1</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="block-icon icon-unidade"></div>
+                            <div class="stepper">
+                                <button class="btn-step btn-minus" data-type="1">-</button>
+                                <span class="step-count" id="count-1">0</span>
+                                <button class="btn-step btn-plus" data-type="1">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="action-section">
+                <div class="current-total panel-glass">
+                    <span>Você montou:</span>
+                    <strong id="current-number">0</strong>
+                </div>
+                <button id="verify-btn" class="btn-primary">Verificar Resposta ✨</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="modal-overlay hidden">
+        <div class="modal-content panel-glass bounce-in">
+            <h2 id="feedback-title">Muito bem!</h2>
+            <div id="feedback-emoji" class="modal-emoji">🎉</div>
+            <p id="feedback-message">Você acertou!</p>
+            <div class="reward-points hidden" id="reward-points">+10 Pontos!</div>
+            <button id="next-btn" class="btn-secondary">Próximo Desafio</button>
+            <button id="try-again-btn" class="btn-secondary hidden">Tentar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
